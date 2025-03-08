@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès Sécurisé</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        #login { display: block; }
+        #content { display: none; }
+    </style>
+</head>
+<body>
+    <div id="login">
+        <h2>Entrez le code d'accès</h2>
+        <input type="password" id="code" placeholder="Code secret">
+        <button onclick="verifierCode()">Valider</button>
+        <p id="message" style="color: red;"></p>
+    </div>
+    
+    <div id="content">
+        <h2>Bienvenue !</h2>
+        <p>Voici vos dossiers sécurisés :</p>
+        <ul>
+            <li><a href="#">Dossier 1</a></li>
+            <li><a href="#">Dossier 2</a></li>
+            <li><a href="#">Dossier 3</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function verifierCode() {
+            const codeSecret = "1234"; // À changer pour un vrai code sécurisé
+            let codeEntre = document.getElementById("code").value;
+            
+            if (codeEntre === codeSecret) {
+                document.getElementById("login").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                document.getElementById("message").innerText = "Code incorrect";
+            }
+        }
+    </script>
+</body>
+</html>
